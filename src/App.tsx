@@ -1,28 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import Clock from './Clock';
-import Person from './Person';
-
-
-// const Component = React
-//   .createElement('div', { style: { background: 'red' } }, 'Olá, Mundo')
-
-// const HTMLElement = document.createElement('div')
-// HTMLElement.style.background = 'red'
-// HTMLElement.innerText = 'Olá, mundo!'
-
-// console.log(Component);
-// console.dir(HTMLElement);
-
-// // @ts-ignore
-// // document.body.appendChild(Component)
+import Card from './components/Card';
+import Post from './components/Post';
 
 
 function App() {
+  const [post] = useState({
+    title: 'Título maneiro',
+    content: 'Lorem Isum ate mera atme'
+  })
+  //Quando abrimos e fechamos um componente e passamos um conte[udo pra ele, as props deste componente passam a ter 
+  //a propriedade children
   return (
     <div className="App">
       <header className="App-header">
-        <Clock/>
-        <Person/>
+        <Card align='right' title='Card'>
+          <Post post={post} totalComments={12}/>
+        </Card>    
       </header>
     </div>
   );
