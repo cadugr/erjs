@@ -12,6 +12,7 @@ interface ButtonProps {
 
 interface ButtonState {
     alreadyClicked: boolean
+    timerId?: NodeJS.Timeout
 }
 
 class Button extends Component<ButtonProps, ButtonState> {
@@ -26,12 +27,39 @@ class Button extends Component<ButtonProps, ButtonState> {
         }
     }
 
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             alreadyClicked: false
+    //         })
+    //     }, 5000)
+    // }
+
+    // componentDidUpdate (prevProps: ButtonProps, prevState: ButtonState) {
+    //     //podemos dentro deste método do ciclo de vida, fazer algumas comparações com os estados anteriores
+    //     console.log('anterior: ', prevState)
+    //     console.log('atual: ', this.state)
+    // }
+
+    // componentDidMount () {
+    //     const timerId = setInterval(() => {
+    //       console.log('to rodando')
+    //     }, 5000)
+    //     this.setState({ timerId })
+    //   }
+    
+    //   componentWillUnmount () {
+    //     console.log('Button será desmontado')
+    //     if (this.state.timerId)
+    //       clearInterval(this.state.timerId)
+    //   }
+    
+
     render() {
         /**Um componente baseado em classe já trás o props.children automaticamente 
          * devido ä versão do React, utilizar o this.props.children apresenta erro, o que podemos resolver, alterando a 
          * extensão do arquivo de tsx para jsx
         */
-        console.log(this.props)
         return <button 
                 onClick={() => {
                     this.setState({

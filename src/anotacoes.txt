@@ -1,0 +1,21 @@
+falando sobre ciclos de vida dos componentes:
+
+1 - A "render phase", ou fase de rendereização, deve ser pura e não gerar efeitos colaterais
+2 - Na montagem do nosso componente, ou seja, na sua fase de renderização, o primeiro método que ele executa é o
+construtor.  Esse é o primeiro ponto do ciclo de vida de um componente.  Em seguida o método getDerivedStateFromProps
+é executado.  O terceiro método a ser executado é o render (falando em componentes baseados em classe).  Esses 3 métodos 
+são os que compoõe a "render phase", ou fase de renderização.  Eles são métodos que não podem gerar efeitos colaterais.
+3 - Em seguida, temos a "commit phase", cujo método que a compõe é o componentDidMount.  É o último método a ser executado 
+na montagem do nosso componente.  Essa fase de commit pode gerar efeitos colaterais, ter acesso ao DOM e agendar atualizações.
+Importante destacar que todos os métodos do ciclo de vida de vida de um componente são utilizáveis em componentes baseados 
+em classes.  Podem até serem emulados em componentes funcionais.
+4 - Falando sobra atualização do nosso componente, estamos falando da mudança do seu estado ou de uma propriedade que causa
+uma nova renderização.  Para um componente ser atualizado, ele já tem que ter sido montado alguma vez.  O primeiro método executado
+é o getDerivedStateFromProps, o qual reage a uma nova propriedade, a uma mudança de estado ou ao chamarmos o método forceUpdate.
+Em seguida o método shouldComponentUpdate será chamado, aonde é checado se aquele componente precisa de fato ser atualizado. 
+Aqui, existem 2 caminhos:  ou seguirá com o ciclo de vida e o método render então será chamado, ou então a atualização será abortada.
+Após, o método getSnapshotBeforeUpdate é executado no que chamamos de "pre-commit phase", a qual só existe na atualização.  Então, as referencias 
+no DOM são atualizadas e o método componenteDidUpdate é executado.  O método componenteDidUpdate sempre será executado após o React já
+ter atualizado o DOM.
+5 - A fase final de nosso componente é quando ele será desmontado.  E basicamente o único método executado nesse momento é o componentWillUnmount.
+Este é método é executado pouco antes do nosso componente ser desmontado.

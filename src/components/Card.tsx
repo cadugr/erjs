@@ -1,4 +1,4 @@
-import { PropsWithChildren 
+import { PropsWithChildren, useState 
 //    ReactNode 
 } 
 from "react"
@@ -37,15 +37,22 @@ export default function Card (props: CardProps) {
      * Falando um pouco de componentes baseados em classe, os mesmos estão caindo em desuso por ter uma api mais verbosa
      */
     //abaixo utilizamos uma trick para renderizar nosso css de forma dinamica
+    const [showButton, setShowButton] = useState(true)
+
+
     return <C.Wrapper align={props.align || 'left'}>
         <C.Title>{props.title}</C.Title>
         {props.children}
         <div>
-            <Button 
-                onClick={() => console.log('batata')}
-                >
-                ver mais
-            </Button>
+            {
+                showButton &&
+                <Button 
+                    onClick={() => setShowButton(false)}
+                    >
+                    ver mais
+                </Button>
+
+            }
         </div>
     </C.Wrapper>
 }
