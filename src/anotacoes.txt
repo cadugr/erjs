@@ -19,3 +19,16 @@ no DOM são atualizadas e o método componenteDidUpdate é executado.  O método
 ter atualizado o DOM.
 5 - A fase final de nosso componente é quando ele será desmontado.  E basicamente o único método executado nesse momento é o componentWillUnmount.
 Este é método é executado pouco antes do nosso componente ser desmontado.
+
+Capítulo 3 (Hooks)
+
+1 - Componentes stateful eram componentes que possuíam estado local e eram componentes baseados em classe.  A única forma de se manter estado
+no react antigamente era com componentes baseados em classe.  Já os componentes statelles não possuíam estado local e sua única forma de reagir a mudanças 
+era com as props.  Com isso, surgiram os hooks, uma forma alternativa para mantermos estados e ciclos de vida em componentes funcionais.
+
+2 - Para utilizarmos hooks, precisamos respeitar algumas regras.  São elas:
+  - Começam com a palavra chave "use", até mesmo os personalizados.
+  - São funções que retornam estados / métodos.
+  - Funcionam apenas em componentes funcionais.
+  - Precisam estar no escopo raiz, ou seja, no nível superior.  Não podemos usar hooks dentro de loops, regras condicionais ou 
+  funções aninhadas.
