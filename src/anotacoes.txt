@@ -32,3 +32,6 @@ era com as props.  Com isso, surgiram os hooks, uma forma alternativa para mante
   - Funcionam apenas em componentes funcionais.
   - Precisam estar no escopo raiz, ou seja, no nível superior.  Não podemos usar hooks dentro de loops, regras condicionais ou 
   funções aninhadas.
+
+3 - o hook useEffect pode ser utilizado na maioria dos casos para os métodos de ciclo de vida que temos nos componentes baseados em classes.
+  
